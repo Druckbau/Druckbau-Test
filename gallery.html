@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druckbau - Galerie</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .gallery-view-container {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .main-image-container {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .main-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            width: 100%;
+            padding: 10px;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            opacity: 1;
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            margin: 0;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" id="close-gallery-btn" class="back-btn">← Schließen</a>
+
+    <div class="gallery-view-container" id="gallery-app">
+        <h2 id="product-title">Lade...</h2>
+        <div class="main-image-container">
+            <img id="main-display" src="" alt="Gallerie Bild" class="main-image">
+        </div>
+        <div class="thumbnails" id="thumbs-container">
+            <!-- Populated by JS -->
+        </div>
+        <footer style="margin-top: 1.5rem; font-size: 0.8rem; color: #888; text-align: center;">
+            <a href="index.html" style="color: #aaa; text-decoration: none;">Startseite</a> | 
+            <a href="impressum.html" style="color: #aaa; text-decoration: none;">Impressum</a> | 
+            <a href="datenschutz.html" style="color: #aaa; text-decoration: none;">Datenschutz</a> |
+            <a href="agb.html" style="color: #aaa; text-decoration: none;">AGB</a>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('close-gallery-btn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        const galleryProducts = [
+            { id: 'a', name: 'Fidget Klicker', images: ['klicker.png'] },
+            { id: 'b', name: 'Hundekotbeutelspender', images: ['hundekotbeutelspender.png', 'hund_1.jpg', 'hund_2.jpg', 'hund_3.jpg', 'hund_4.jpg', 'hund_5.jpg'] },
+            { id: 'e', name: 'Stifthalter', images: ['stifthalter.png'] }
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id') || 'b';
+        const startImg = params.get('img');
+        const product = galleryProducts.find(p => p.id === productId) || galleryProducts[0];
+
+        const titleElement = document.getElementById('product-title');
+        if (titleElement) titleElement.textContent = product.name;
+
+        const mainImg = document.getElementById('main-display');
+        const thumbsContainer = document.getElementById('thumbs-container');
+
+        let currentImg = startImg || product.images[0];
+        if (mainImg) mainImg.src = currentImg;
+
+        if (thumbsContainer) {
+            thumbsContainer.innerHTML = product.images.map(img => `
+                <img src="${img}" class="thumbnail ${img === currentImg ? 'active' : ''}" data-src="${img}" alt="Thumbnail">
+            `).join('');
+
+            thumbsContainer.addEventListener('click', (e) => {
+                const thumb = e.target.closest('.thumbnail');
+                if (thumb && mainImg) {
+                    const src = thumb.getAttribute('data-src');
+                    mainImg.src = src;
+                    thumbsContainer.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druckbau - Widerrufsbelehrung & Muster-Widerrufsformular</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <script src="legal-data.js"></script>
+    <style>
+        :root {
+            --legal-bg: #f8fafc;
+            --legal-card: #ffffff;
+            --legal-text: #1e293b;
+            --legal-muted: #64748b;
+            --legal-border: #e2e8f0;
+            --legal-primary: #2563eb;
+        }
+
+        [data-theme="dark"] {
+            --legal-bg: #0f172a;
+            --legal-card: #1e293b;
+            --legal-text: #f8fafc;
+            --legal-muted: #94a3b8;
+            --legal-border: #334155;
+            --legal-primary: #3b82f6;
+        }
+
+        body {
+            background-color: var(--legal-bg);
+            color: var(--legal-text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .legal-container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--legal-card);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--legal-border);
+        }
+
+        .legal-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--legal-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--legal-text);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            color: var(--legal-primary);
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--legal-border);
+            padding-bottom: 0.4rem;
+        }
+
+        p, ul {
+            color: var(--legal-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-box {
+            background: rgba(241, 245, 249, 0.6);
+            border: 1px dashed var(--legal-border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        [data-theme="dark"] .form-box {
+            background: rgba(15, 23, 42, 0.4);
+        }
+
+        .back-home-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--legal-primary);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            z-index: 1000;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-home-fixed:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        a {
+            color: var(--legal-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--legal-border);
+            font-size: 0.85rem;
+            color: var(--legal-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-home-fixed">← Zur Startseite</a>
+
+    <main>
+        <div class="legal-container">
+            <div class="legal-badge">EU-Verbraucherschutzrecht</div>
+            <h1>Widerrufsbelehrung</h1>
+
+            <h2>Hinweis zum Vertragsschluss</h2>
+            <p>
+                Über diese Website können Sie eine unverbindliche Angebotsanfrage senden. Dadurch kommt noch kein Vertrag zustande. Ein Vertrag kommt erst zustande, wenn Sie ein individuelles Angebot von uns gesondert in Textform, zum Beispiel per E-Mail, annehmen. Die folgende Belehrung gilt, soweit für den so geschlossenen Fernabsatzvertrag ein gesetzliches Widerrufsrecht besteht.
+            </p>
+
+            <h2>Widerrufsbelehrung</h2>
+            <h3>Widerrufsrecht</h3>
+            <p>
+                Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.
+            </p>
+            <p>
+                Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die letzte Ware in Besitz genommen haben bzw. hat.
+            </p>
+            <p>
+                Um Ihr Widerrufsrecht auszuüben, müssen Sie uns:<br>
+                <strong><span data-legal="company-name">Philipp Daniel Roggenland</span></strong><br>
+                Inhaber: <span data-legal="owner-name">Philipp Daniel Roggenland</span><br>
+                <span data-legal="city-line">44789 Bochum, Deutschland</span><br>
+                E-Mail: <a href="mailto:kontakt.druckbau@gmail.com" data-legal-mailto="email">kontakt.druckbau@gmail.com</a><br>
+                Telefon: <a data-legal-tel="phone" href="tel:+4915566799602"><span data-legal="phone">+49 155 66799602</span></a><br>
+                mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.
+            </p>
+            <p>
+                Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.
+            </p>
+
+            <h3>Folgen des Widerrufs</h3>
+            <p>
+                Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist.
+            </p>
+            <p>
+                Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet. Wir können die Rückzahlung verweigern, bis wir die Waren wieder zurückerhalten haben oder bis Sie den Nachweis erbracht haben, dass Sie die Waren zurückgesandt haben, je nachdem, welches der frühere Zeitpunkt ist.
+            </p>
+            <p>
+                Sie haben die Waren unverzüglich und in jedem Fall spätestens binnen vierzehn Tagen ab dem Tag, an dem Sie uns über den Widerruf dieses Vertrags unterrichten, an uns zurückzusenden oder zu übergeben. Die Frist ist gewahrt, wenn Sie die Waren vor Ablauf der Frist von vierzehn Tagen absenden.
+            </p>
+            <p>
+                Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.
+            </p>
+            <p>
+                Sie müssen für einen etwaigen Wertverlust der Waren nur aufkommen, wenn dieser Wertverlust auf einen zur Prüfung der Beschaffenheit, Eigenschaften und Funktionsweise der Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.
+            </p>
+
+            <h2>Gesonderter Hinweis zu individuell angefertigten Waren</h2>
+            <p>
+                Das Widerrufsrecht besteht gemäß § 312g Abs. 2 Nr. 1 BGB nicht bei Verträgen zur Lieferung von Waren, die nicht vorgefertigt sind und für deren Herstellung eine individuelle Auswahl oder Bestimmung durch den Verbraucher maßgeblich ist oder die eindeutig auf dessen persönliche Bedürfnisse zugeschnitten sind. Ob diese Ausnahme im Einzelfall greift, hängt von der konkreten Anfertigung ab; nicht jede Auswahl aus angebotenen Standardoptionen ist automatisch eine Sonderanfertigung. Gesetzliche Mängelrechte bleiben unberührt.
+            </p>
+
+            <h2>Muster-Widerrufsformular</h2>
+            <p><em>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</em></p>
+            
+            <div class="form-box">
+                An:<br>
+                <strong><span data-legal="company-name">Philipp Daniel Roggenland</span></strong><br>
+                Inhaber: <span data-legal="owner-name">Philipp Daniel Roggenland</span><br>
+                <span data-legal="city-line">44789 Bochum, Deutschland</span><br>
+                E-Mail: <a href="mailto:kontakt.druckbau@gmail.com" data-legal-mailto="email">kontakt.druckbau@gmail.com</a><br><br>
+                Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)/die Erbringung der folgenden Dienstleistung (*):<br><br>
+                Bestellt am (*): ________________ / Erhalten am (*): ________________<br><br>
+                Name des/der Verbraucher(s): ____________________________________<br><br>
+                Anschrift des/der Verbraucher(s): __________________________________<br><br>
+                Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier): __________________<br><br>
+                Datum: __________________<br><br>
+                <em>(*) Unzutreffendes streichen.</em>
+            </div>
+
+            <div class="footer-note">
+                <a href="index.html">← Zurück zur Hauptseite</a> | <a href="agb.html">AGB</a> | <a href="impressum.html">Impressum & GPSR</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="versand.html">Versand & Zahlung</a> | <a href="barrierefreiheit.html">Barrierefreiheit</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

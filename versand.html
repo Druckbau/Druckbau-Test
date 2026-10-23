@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druckbau - Versand & Zahlung</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <script src="legal-data.js"></script>
+    <style>
+        :root {
+            --legal-bg: #f8fafc;
+            --legal-card: #ffffff;
+            --legal-text: #1e293b;
+            --legal-muted: #64748b;
+            --legal-border: #e2e8f0;
+            --legal-primary: #2563eb;
+        }
+
+        [data-theme="dark"] {
+            --legal-bg: #0f172a;
+            --legal-card: #1e293b;
+            --legal-text: #f8fafc;
+            --legal-muted: #94a3b8;
+            --legal-border: #334155;
+            --legal-primary: #3b82f6;
+        }
+
+        body {
+            background-color: var(--legal-bg);
+            color: var(--legal-text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .legal-container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--legal-card);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--legal-border);
+        }
+
+        .legal-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--legal-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--legal-text);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            color: var(--legal-primary);
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--legal-border);
+            padding-bottom: 0.4rem;
+        }
+
+        p, ul {
+            color: var(--legal-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .highlight-card {
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .back-home-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--legal-primary);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            z-index: 1000;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-home-fixed:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        a {
+            color: var(--legal-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--legal-border);
+            font-size: 0.85rem;
+            color: var(--legal-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-home-fixed">← Zur Startseite</a>
+
+    <main>
+        <div class="legal-container">
+            <div class="legal-badge">Preistransparenz & Logistik</div>
+            <h1>Versand- und Zahlungsbedingungen</h1>
+
+            <h2>Preise & Umsatzsteuer</h2>
+            <p>
+                <span data-legal="vat-notice">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerstatus).</span>
+            </p>
+
+            <h2>Zahlungsmöglichkeiten</h2>
+            <p>Der Online-Checkout sendet zunächst eine unverbindliche Angebotsanfrage. Die konkret verfügbaren Zahlungsarten und Zahlungsbedingungen werden im individuellen Angebot mitgeteilt. Eine Zahlung wird über diese Website nicht abgewickelt.</p>
+
+            <h2>Versandkosten & Freigrenzen</h2>
+            <div class="highlight-card">
+                <p style="margin:0;">
+                    🚚 <strong>Standardversand Deutschland:</strong> Pauschal <strong>4,90 €</strong> pro Bestellung.<br>
+                    🎉 <strong>Kostenloser Versand:</strong> Ab einem Bestellwert von <strong>50,00 €</strong> versenden wir versandkostenfrei innerhalb Deutschlands.
+                </p>
+            </div>
+
+            <h2>Lieferzeiten & Fertigung</h2>
+            <p>
+                Wir liefern derzeit ausschließlich innerhalb Deutschlands. Als unverbindliche Orientierung beträgt die Lieferzeit ca. 8–12 Werktage; sie kann je nach Produkt, Auftragslage und Versand abweichen. Vor Annahme des Angebots und vor einer Zahlung nennen wir Ihnen die konkrete Lieferfrist und deren Beginn.
+            </p>
+            <p>
+                Auch bei Sonderanfertigungen wird die konkrete Fertigungs- und Lieferfrist im individuellen Angebot vor Vertragsschluss festgelegt.
+            </p>
+
+            <h2>Nachhaltige Verpackung & Produktsicherheit</h2>
+            <p>
+                Die für eine Bestellung geltenden Verpackungs- und Entsorgungshinweise teilen wir am Produkt bzw. bei der Lieferung mit. Die erforderliche Registrierung und Systembeteiligung für Versandverpackungen ist vor dem Versand vom Anbieter sicherzustellen.
+            </p>
+
+            <div class="footer-note">
+                <a href="index.html">← Zurück zur Hauptseite</a> | <a href="agb.html">AGB</a> | <a href="impressum.html">Impressum & GPSR</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="widerruf.html">Widerrufsbelehrung</a> | <a href="barrierefreiheit.html">Barrierefreiheit</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

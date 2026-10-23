@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druckbau - Impressum & Produktsicherheit (GPSR)</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <script src="legal-data.js"></script>
+    <style>
+        :root {
+            --legal-bg: #f8fafc;
+            --legal-card: #ffffff;
+            --legal-text: #1e293b;
+            --legal-muted: #64748b;
+            --legal-border: #e2e8f0;
+            --legal-primary: #2563eb;
+        }
+
+        [data-theme="dark"] {
+            --legal-bg: #0f172a;
+            --legal-card: #1e293b;
+            --legal-text: #f8fafc;
+            --legal-muted: #94a3b8;
+            --legal-border: #334155;
+            --legal-primary: #3b82f6;
+        }
+
+        body {
+            background-color: var(--legal-bg);
+            color: var(--legal-text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .legal-container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--legal-card);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--legal-border);
+        }
+
+        .legal-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--legal-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--legal-text);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            color: var(--legal-primary);
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--legal-border);
+            padding-bottom: 0.4rem;
+        }
+
+        p, ul {
+            color: var(--legal-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .notice-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--legal-text);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .back-home-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--legal-primary);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            z-index: 1000;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-home-fixed:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        a {
+            color: var(--legal-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--legal-border);
+            font-size: 0.85rem;
+            color: var(--legal-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-home-fixed">← Zur Startseite</a>
+
+    <main>
+        <div class="legal-container">
+            <div class="legal-badge">Anbieterkennzeichnung & Produktsicherheit</div>
+            <h1>Impressum</h1>
+
+            <h2>Angaben gemäß § 5 DDG</h2>
+            <p>
+                <strong><span data-legal="company-name">Philipp Daniel Roggenland</span></strong><br>
+                Inhaber: <span data-legal="owner-name">Philipp Daniel Roggenland</span><br>
+                <span data-legal="city-line">44789 Bochum, Deutschland</span>
+            </p>
+
+            <h2>Kontakt</h2>
+            <p>
+                E-Mail: <a href="mailto:kontakt.druckbau@gmail.com" data-legal-mailto="email">kontakt.druckbau@gmail.com</a><br>
+                Bestell-E-Mail: <a href="mailto:bestellungen.druckbau@gmail.com" data-legal-mailto="order-email">bestellungen.druckbau@gmail.com</a><br>
+                Telefon: <a data-legal-tel="phone" href="tel:+4915566799602"><span data-legal="phone">+49 155 66799602</span></a><br>
+                Website: <a href="https://druckbau.de" data-legal-link="website">https://druckbau.de</a>
+            </p>
+
+            <h2>Umsatzsteuer-Information</h2>
+            <p>
+                <span data-legal="vat-notice">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerstatus).</span><br>
+                <span id="vat-id-block" data-legal="vat-id">[USt-IdNr. ergänzen, falls vorhanden]</span>
+            </p>
+
+            <h2>Produktsicherheit & EU-Herstellerangaben (GPSR - EU 2023/988)</h2>
+            <div class="notice-box">
+                <strong>Gemäß der EU-Produktsicherheitsverordnung (GPSR - Verordnung (EU) 2023/988):</strong><br>
+                Hersteller: <strong><span data-legal="manufacturer-name">Philipp Daniel Roggenland</span></strong>,
+                <span data-legal="city-line">44789 Bochum, Deutschland</span>,
+                E-Mail: <a href="mailto:kontakt.druckbau@gmail.com" data-legal-mailto="email">kontakt.druckbau@gmail.com</a>.<br>
+                Die Hersteller- und Sicherheitshinweise müssen zusätzlich bei jedem betroffenen Produktangebot und, soweit vorgeschrieben, am Produkt oder auf der Verpackung angegeben werden.<br><br>
+                <strong>Sicherheits- & Handhabungshinweise:</strong>
+                <ul>
+                    <li>Sofern nicht ausdrücklich anders angegeben, sind 3D-Druckartikel kein Spielzeug für Kleinkinder unter 3 Jahren. Es besteht Erstickungsgefahr durch verschluckbare Kleinteile bei mechanischer Beschädigung.</li>
+                    <li>PLA-Erzeugnisse sind formstabil bis ca. 50-55°C. Nicht in die Spülmaschine, Mikrowelle oder direkte Sommerhitze im Auto legen.</li>
+                    <li>PETG-Erzeugnisse sind temperaturbeständig bis ca. 75-80°C und witterungsbeständig.</li>
+                </ul>
+            </div>
+
+            <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+            <p>
+                <span data-legal="owner-name">Philipp Daniel Roggenland</span><br>
+                <span data-legal="city-line">44789 Bochum, Deutschland</span>
+            </p>
+
+            <h2>Verbraucherstreitbeilegung</h2>
+            <p>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+
+            <h2>Verpackungsregister</h2>
+            <p>
+                Registrierungsnummer im Verpackungsregister LUCID: <span data-legal="lucid">[bitte vor dem Livegang eintragen]</span>
+            </p>
+
+            <div class="footer-note">
+                <a href="index.html">← Zurück zur Hauptseite</a> | <a href="agb.html">AGB</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="widerruf.html">Widerrufsbelehrung</a> | <a href="versand.html">Versand & Zahlung</a> | <a href="barrierefreiheit.html">Barrierefreiheit</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
