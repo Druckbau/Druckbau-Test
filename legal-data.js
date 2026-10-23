@@ -1,7 +1,7 @@
 window.DRUCKBAU_LEGAL = {
   companyName: 'Philipp Daniel Roggenland',
   ownerName: 'Philipp Daniel Roggenland',
-  street: '',
+  street: 'Steinring 121',
   zip: '44789',
   city: 'Bochum',
   country: 'Deutschland',
@@ -36,7 +36,7 @@ function applyLegalData() {
   const map = {
     'company-name': legal.companyName || 'Philipp Daniel Roggenland',
     'owner-name': legal.ownerName || '[Vor Veröffentlichung ergänzen]',
-    'street': legal.street || '',
+    'street': legal.street || '[Straße ergänzen]',
     'city-line': `${legal.zip || '[PLZ ergänzen]'} ${legal.city || '[Ort ergänzen]'}, ${legal.country || 'Deutschland'}`,
     'full-address': `${legal.street ? `${legal.street}, ` : ''}${legal.zip || '[PLZ]'} ${legal.city || '[Ort]'}, ${legal.country || 'Deutschland'}`,
     'manufacturer-name': legal.manufacturerName || legal.companyName || 'Philipp Daniel Roggenland',
