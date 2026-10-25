@@ -150,7 +150,7 @@ window.translations = {
         cart_checkout: "Angebot anfragen",
         inquiry_cart_note: "Dies ist eine unverbindliche Anfrage, keine Bestellung. Preis, Versandkosten und Lieferzeit werden im Angebot mitgeteilt. Eine Zahlung erfolgt erst nach Ihrer Annahme des Angebots.",
         custom_order_price_pending: "Preis und Versandkosten der Sonderanfertigung sind im Warenkorbbetrag noch nicht enthalten; beides wird im Angebot mitgeteilt.",
-        product_safety_info: "Produktsicherheit (GPSR): Kein Spielzeug für Kinder unter 3 Jahren (Erstickungsgefahr durch verschluckbare Kleinteile). Formstabil bis ca. 55°C (PLA). Hersteller: Philipp Daniel Roggenland (siehe Impressum).",
+        product_safety_info: "Produktsicherheit (GPSR): Kein Spielzeug für Kinder unter 3 Jahren (Erstickungsgefahr durch verschluckbare Kleinteile). Formstabil bis ca. 55°C (PLA). Hersteller: Druckbau (siehe Impressum).",
         product_safety_fidget: "Enthält bewegliche mechanische Kleinteile (Taster/Keycaps); bei Verschlucken besteht Erstickungsgefahr.",
         product_safety_poop: "Hundekotbeutelspender zur Aufbewahrung und Entnahme von Hundekotbeuteln. Vor der Verwendung auf Beschädigungen prüfen; beschädigte Teile nicht weiterverwenden.",
         product_safety_pen: "Stifthalter für den Einsatz am Schreibtisch. Vor der Verwendung auf Beschädigungen prüfen; beschädigte Teile nicht weiterverwenden.",
@@ -161,9 +161,9 @@ window.translations = {
         gpsr_manufacturer: "Hersteller",
         gpsr_manufacturer_address: "Herstelleranschrift",
         gpsr_manufacturer_email: "Elektronische Kontaktadresse",
-        gpsr_missing_manufacturer: "Philipp Daniel Roggenland",
-        gpsr_missing_street: "Steinring 121",
-        gpsr_missing_city: "44789 Bochum",
+        gpsr_missing_manufacturer: "Druckbau",
+        gpsr_missing_street: "",
+        gpsr_missing_city: "",
         gpsr_missing_email: "kontakt.druckbau@gmail.com",
         product_fidget_classification_pending: "Alterszielgruppe und Einordnung als Spielzeug werden vor einer Markteinführung geprüft. Falls das Produkt als Spielzeug einzustufen ist, werden die erforderliche Konformitätsbewertung, CE-Kennzeichnung und Spielzeug-Warnhinweise vor dem Verkauf umgesetzt.",
         delivery_time_standard: "Voraussichtliche Lieferzeit: 8–12 Werktage. Konkrete Frist im Angebot.",
@@ -536,7 +536,7 @@ window.translations = {
         cart_checkout: "Request an offer",
         inquiry_cart_note: "This is a non-binding inquiry, not an order. Price, shipping costs and delivery time will be stated in the offer. Payment is only due after you accept the offer.",
         custom_order_price_pending: "The price and shipping cost of custom work are not included in the cart total; both will be stated in the offer.",
-        product_safety_info: "Product Safety (GPSR): Not a toy for children under 3 years (choking hazard due to small parts). Heat resistant up to approx. 55°C (PLA). Manufacturer: Philipp Daniel Roggenland (see imprint).",
+        product_safety_info: "Product Safety (GPSR): Not a toy for children under 3 years (choking hazard due to small parts). Heat resistant up to approx. 55°C (PLA). Manufacturer: Druckbau (see imprint).",
         product_safety_fidget: "Contains moving mechanical small parts (switches/keycaps); swallowing them presents a choking hazard.",
         product_safety_poop: "Dog waste bag holder for storing and dispensing dog waste bags. Check for damage before use; do not use damaged parts.",
         product_safety_pen: "Pen holder for desk use. Check for damage before use; do not use damaged parts.",
@@ -547,9 +547,9 @@ window.translations = {
         gpsr_manufacturer: "Manufacturer",
         gpsr_manufacturer_address: "Manufacturer address",
         gpsr_manufacturer_email: "Electronic contact address",
-        gpsr_missing_manufacturer: "Philipp Daniel Roggenland",
-        gpsr_missing_street: "Steinring 121",
-        gpsr_missing_city: "44789 Bochum, Germany",
+        gpsr_missing_manufacturer: "Druckbau",
+        gpsr_missing_street: "",
+        gpsr_missing_city: "",
         gpsr_missing_email: "kontakt.druckbau@gmail.com",
         product_fidget_classification_pending: "The target age group and whether this is a toy will be assessed before launch. If classified as a toy, the required conformity assessment, CE marking and toy warnings will be completed before sale.",
         delivery_time_standard: "Estimated delivery: 8–12 business days. Specific period in the offer.",
@@ -987,6 +987,7 @@ function renderProductSafety(product) {
     const street = legal?.street || t('gpsr_missing_street');
     const postalCity = [legal?.zip, legal?.city].filter(Boolean).join(' ') || t('gpsr_missing_city');
     const cityLine = legal?.country ? `${postalCity}, ${legal.country}` : postalCity;
+    const manufacturerAddress = [street, cityLine].filter(Boolean).join(', ');
     const email = legal?.email || t('gpsr_missing_email');
     const safetyText = t(product.safetyKey || 'product_safety_custom');
 
@@ -999,7 +1000,7 @@ function renderProductSafety(product) {
                 <dl class="product-manufacturer-details">
                     <div><dt>${t('gpsr_product_identification')}</dt><dd>${escapeHtml(product.model || t(product.nameKey))} · ${t('gpsr_article_number')} ${escapeHtml(product.sku || product.id)}</dd></div>
                     <div><dt>${t('gpsr_manufacturer')}</dt><dd>${escapeHtml(manufacturerName)}</dd></div>
-                    <div><dt>${t('gpsr_manufacturer_address')}</dt><dd>${street ? `${escapeHtml(street)}, ` : ''}${escapeHtml(cityLine)}</dd></div>
+                    ${manufacturerAddress ? `<div><dt>${t('gpsr_manufacturer_address')}</dt><dd>${escapeHtml(manufacturerAddress)}</dd></div>` : ''}
                     <div><dt>${t('gpsr_manufacturer_email')}</dt><dd><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></dd></div>
                 </dl>
             </div>

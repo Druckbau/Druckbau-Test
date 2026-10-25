@@ -12,6 +12,7 @@ function renderProductSafety(product) {
     const street = legal?.street || t('gpsr_missing_street');
     const postalCity = [legal?.zip, legal?.city].filter(Boolean).join(' ') || t('gpsr_missing_city');
     const cityLine = legal?.country ? `${postalCity}, ${legal.country}` : postalCity;
+    const manufacturerAddress = [street, cityLine].filter(Boolean).join(', ');
     const email = legal?.email || t('gpsr_missing_email');
     const safetyText = t(product.safetyKey || 'product_safety_custom');
 
@@ -24,7 +25,7 @@ function renderProductSafety(product) {
                 <dl class="product-manufacturer-details">
                     <div><dt>${t('gpsr_product_identification')}</dt><dd>${escapeHtml(product.model || t(product.nameKey))} · ${t('gpsr_article_number')} ${escapeHtml(product.sku || product.id)}</dd></div>
                     <div><dt>${t('gpsr_manufacturer')}</dt><dd>${escapeHtml(manufacturerName)}</dd></div>
-                    <div><dt>${t('gpsr_manufacturer_address')}</dt><dd>${street ? `${escapeHtml(street)}, ` : ''}${escapeHtml(cityLine)}</dd></div>
+                    ${manufacturerAddress ? `<div><dt>${t('gpsr_manufacturer_address')}</dt><dd>${escapeHtml(manufacturerAddress)}</dd></div>` : ''}
                     <div><dt>${t('gpsr_manufacturer_email')}</dt><dd><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></dd></div>
                 </dl>
             </div>

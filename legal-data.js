@@ -1,10 +1,10 @@
 window.DRUCKBAU_LEGAL = {
-  companyName: 'Philipp Daniel Roggenland',
-  ownerName: 'Philipp Daniel Roggenland',
-  street: 'Steinring 121',
-  zip: '44789',
-  city: 'Bochum',
-  country: 'Deutschland',
+  companyName: 'Druckbau',
+  ownerName: '',
+  street: '',
+  zip: '',
+  city: '',
+  country: '',
   email: 'kontakt.druckbau@gmail.com',
   orderEmail: 'bestellungen.druckbau@gmail.com',
   phone: '+49 155 66799602',
@@ -12,7 +12,7 @@ window.DRUCKBAU_LEGAL = {
   isSmallBusiness: true, // true = Kleinunternehmer nach § 19 UStG; false = Regelbesteuerung mit MwSt.-Ausweis
   vatId: '',
   lucidNumber: '',
-  manufacturerName: 'Philipp Daniel Roggenland',
+  manufacturerName: 'Druckbau',
   googlePrivacyLink: 'https://policies.google.com/privacy?hl=de',
   registrationText: 'Rechtsform: Einzelunternehmen'
 };
@@ -34,12 +34,12 @@ function applyLegalData() {
     : (isSmallBusiness ? 'Keine Angabe erforderlich (Kleinunternehmerregelung gemäß § 19 UStG).' : '[USt-IdNr. vor Veröffentlichung ergänzen, falls vorhanden]');
 
   const map = {
-    'company-name': legal.companyName || 'Philipp Daniel Roggenland',
-    'owner-name': legal.ownerName || '[Vor Veröffentlichung ergänzen]',
-    'street': legal.street || '[Straße ergänzen]',
-    'city-line': `${legal.zip || '[PLZ ergänzen]'} ${legal.city || '[Ort ergänzen]'}, ${legal.country || 'Deutschland'}`,
-    'full-address': `${legal.street ? `${legal.street}, ` : ''}${legal.zip || '[PLZ]'} ${legal.city || '[Ort]'}, ${legal.country || 'Deutschland'}`,
-    'manufacturer-name': legal.manufacturerName || legal.companyName || 'Philipp Daniel Roggenland',
+    'company-name': legal.companyName || 'Druckbau',
+    'owner-name': legal.ownerName || '',
+    'street': legal.street || '',
+    'city-line': [legal.zip, legal.city, legal.country].filter(Boolean).join(', '),
+    'full-address': [legal.street, legal.zip, legal.city, legal.country].filter(Boolean).join(', '),
+    'manufacturer-name': legal.manufacturerName || legal.companyName || 'Druckbau',
     'email': legal.email || 'kontakt.druckbau@gmail.com',
     'order-email': legal.orderEmail || 'bestellungen.druckbau@gmail.com',
     'phone': legal.phone || '[Telefonnummer vor Veröffentlichung ergänzen]',

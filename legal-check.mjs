@@ -27,24 +27,31 @@ const imprint = fs.readFileSync(files.impressum, 'utf8');
 if (imprint.includes('Philipp Muster') || imprint.includes('[Musterstraße 12]') || imprint.includes('[DE000000000]')) {
   fails.push('impressum contains fabricated identity or address data');
 }
-if (!imprint.includes('data-legal="owner-name"') || !imprint.includes('data-legal="street"') || !imprint.includes('data-legal="city-line"')) {
-  fails.push('impressum is missing linked owner/location fields');
+if (!imprint.includes('data-legal="company-name"')) {
+  fails.push('impressum is missing the provider display name');
 }
 
 const legalData = fs.readFileSync(files.legalData, 'utf8');
 if (legalData.includes('Max Mustermann') || legalData.includes('Musterstraße 12') || legalData.includes('+49 123 4567890')) {
   fails.push('legal-data contains fabricated owner, address, or phone details');
 }
-if (!legalData.includes("ownerName: 'Philipp Daniel Roggenland'") || !legalData.includes("street: 'Steinring 121'") || !legalData.includes("zip: '44789'") || !legalData.includes("city: 'Bochum'") || !legalData.includes("phone: '+49 155 66799602'")) {
-  fails.push('legal-data is missing the restored owner contact information');
+if (!legalData.includes("companyName: 'Druckbau'") || !legalData.includes("ownerName: ''") ||
+    !legalData.includes("street: ''") || !legalData.includes("zip: ''") ||
+    !legalData.includes("city: ''") || !legalData.includes("country: ''")) {
+  fails.push('legal-data must not contain personal name or address details');
 }
-const addressFiles = [
+const identityFiles = [
   files.legalData, files.index, files.impressum, files.datenschutz, files.agb,
-  files.widerruf, path.join(root, 'translations.js'), files.bundle
+  files.widerruf, path.join(root, 'translations.js'), files.bundle,
+  path.join(root, 'js/products.js')
 ];
-const streetAddress = `Steinring${String.fromCharCode(32)}121`;
-if (addressFiles.some(file => !fs.readFileSync(file, 'utf8').includes(streetAddress))) {
-  fails.push('the restored street address must appear in published website sources and bundle');
+const personalName = ['Philipp', 'Daniel', 'Roggenland'].join(' ');
+const privateAddressParts = [['Steinring', '121'].join(' '), '44789', 'Bochum'];
+if (identityFiles.some(file => {
+  const content = fs.readFileSync(file, 'utf8');
+  return content.includes(personalName) || privateAddressParts.some(part => content.includes(part));
+})) {
+  fails.push('published website files or bundle contain personal name/address details');
 }
 
 const privacy = fs.readFileSync(files.datenschutz, 'utf8');
@@ -241,11 +248,11 @@ for (const documentPath of [files.impressum, files.agb, path.join(root, 'versand
     fails.push(`${path.basename(documentPath)} must contain the actual VAT notice as a no-JavaScript fallback`);
   }
 }
-if (!fs.readFileSync(files.impressum, 'utf8').includes('data-legal="manufacturer-name">Philipp Daniel Roggenland</span>')) {
-  fails.push('impressum must contain the actual manufacturer name without JavaScript');
+if (!fs.readFileSync(files.impressum, 'utf8').includes('data-legal="manufacturer-name">Druckbau</span>')) {
+  fails.push('impressum must contain the provider display name without JavaScript');
 }
-if (!indexHtml.includes('Hersteller: Philipp Daniel Roggenland, Steinring 121, 44789 Bochum, Deutschland')) {
-  fails.push('no-JavaScript product catalog notice must show actual manufacturer and address details');
+if (!indexHtml.includes('Hersteller: Druckbau')) {
+  fails.push('no-JavaScript product catalog notice must show the manufacturer display name');
 }
 const accessibility = fs.readFileSync(path.join(root, 'barrierefreiheit.html'), 'utf8');
 if (!accessibility.includes('§ 3 Abs. 3 BFSG') || accessibility.includes('§ 2 Abs. 3 BFSG') || accessibility.includes('3D-Kalkulator')) {
